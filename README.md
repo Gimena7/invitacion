@@ -6,10 +6,12 @@ o publicarse en cualquier hosting estático gratuito.
 
 ## Estructura
 
-- `index.html` — contenido y secciones (portada, cuenta regresiva, presentación,
-  itinerario, ubicación, vestimenta, galería, confirmación).
-- `style.css` — estilos, paleta azul/plateado y animaciones de mariposas.
-- `script.js` — cuenta regresiva y animaciones al hacer scroll.
+- `index.html` — contenido y secciones (portada, cuenta regresiva, detalles,
+  presentación, ubicación, confirmación). No tiene menú de navegación: es una
+  página de scroll continuo.
+- `style.css` — estilos, paleta azul/plateado y decoraciones (tiara, mariposas,
+  rosas, corazones).
+- `script.js` — cuenta regresiva, reproductor de música y animaciones al hacer scroll.
 
 ## Personalización pendiente
 
@@ -41,31 +43,27 @@ precisión:
 
 ### 3. Fotos
 El sitio ya incluye una carpeta `img/` con imágenes de ambientación (azul y
-plateado, con mariposas, rosas y una tiara) usadas en el hero, el footer, la
-sección "Un poco de mí" y como marcador temporal en la Galería:
+plateado, con mariposas, rosas y una tiara) usadas en el hero, el fondo de
+toda la página y la sección "Un poco de mí":
 
-- `img/hero-cielo-estrellado.png` — textura de fondo del hero y del footer.
+- `img/hero-cielo-estrellado.png` — textura de fondo de toda la página (se usa
+  como fondo fijo del `<body>`) y del footer.
 - `img/tiara.png` — tiara sobre el nombre en el hero.
 - `img/quince.png` — el número "15" en cristales, reemplaza la palabra "Quince".
-- `img/corazon-borde.png` — divisor ornamental con corazón, bajo "Años" y bajo el nombre.
-- `img/mariposa-azul.png` — mariposa grande (arriba a la izquierda del hero), y
-  también junto al texto de presentación y en la galería.
-- `img/mariposa-azul-2.png` — mariposa junto al texto de presentación (variante).
-- `img/mariposa-plateada.png` — mariposa plateada grande (arriba a la derecha)
-  y las dos mariposas pequeñas semitransparentes del hero.
+- `img/corazon-borde.png` — divisor ornamental con corazón, usado bajo "Años",
+  bajo el nombre, y como separador (`.section-divider`) al inicio de cada
+  sección del sitio.
+- `img/mariposa-azul.png` — mariposas grandes del hero (izquierda y derecha), y
+  también junto al texto de presentación (variante `mariposa-azul-2.png`).
+- `img/mariposa-plateada.png` — mariposa plateada pequeña del hero.
 - `img/rosa-azul.png` y `img/rosa-azul-2.png` — ramos de rosas de las esquinas
   inferiores del hero (izquierda y derecha respectivamente).
 - `img/hojas.png` — hojas plateadas de relleno detrás de las rosas.
 
 Todas son PNG con fondo transparente. Cuando tengas las
-fotos reales de Luzmery Naiara:
-1. Colócalas dentro de `img/` (por ejemplo `img/foto1.jpg`).
-2. En la sección `#galeria` de `index.html`, reemplaza el `src` de cada
-   `<img>` dentro de `.galeria-item` por tus fotos, y ajusta el texto del
-   `<span>` (o quítalo).
-3. Si quieres, cambia también el fondo del `.hero` o la imagen de
-   `#historia` (`.presentacion-media img`) por una foto real de la
-   quinceañera.
+fotos reales de Luzmery Naiara, puedes reemplazar la imagen de `#historia`
+(`.presentacion-media img`) por una foto real de la quinceañera, o agregar
+una nueva sección de galería con tus propias fotos.
 
 ### 4. Música de fondo
 El sitio incluye un botón flotante 🎵 (esquina inferior derecha) que reproduce
@@ -89,9 +87,9 @@ Nota: los navegadores bloquean la reproducción automática con sonido, por lo
 que la música arranca en el primer clic o toque del visitante en cualquier
 parte de la página (además del botón flotante, que sirve para pausar/reanudar).
 
-### 5. Textos e itinerario
-Los horarios del itinerario (`#itinerario`) y el mensaje de presentación
-(`#historia`) son editables directamente en `index.html`.
+### 5. Textos
+El mensaje de presentación (`#historia`) y los demás textos son editables
+directamente en `index.html`.
 
 ## Publicar en hosting gratuito
 
