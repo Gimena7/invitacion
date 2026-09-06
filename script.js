@@ -108,3 +108,41 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 }
 );
 revealElements.forEach((el) => observer.observe(el));
+
+// Destellos plateados animados en el hero
+const sparkleCanvas = document.querySelector('.hero-sparkle');
+if (sparkleCanvas) {
+  const ctx = sparkleCanvas.getContext('2d');
+  const hero = sparkleCanvas.parentElement;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let dots = [];
+
+  const resize = () => {
+    sparkleCanvas.width = hero.clientWidth;
+    sparkleCanvas.height = hero.clientHeight;
+    const count = Math.floor((sparkleCanvas.width * sparkleCanvas.height) / 12000);
+    dots = Array.from({ length: count }, () => ({
+      x: Math.random() * sparkleCanvas.width,
+      y: Math.random() * sparkleCanvas.height,
+      r: Math.random() * 1.4 + 0.4,
+      baseAlpha: Math.random() * 0.5 + 0.2,
+      phase: Math.random() * Math.PI * 2,
+    }));
+  };
+
+  const draw = (t) => {
+    ctx.clearRect(0, 0, sparkleCanvas.width, sparkleCanvas.height);
+    dots.forEach((d) => {
+      const twinkle = reducedMotion ? d.baseAlpha : d.baseAlpha + Math.sin(t / 1200 + d.phase) * 0.3;
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255,255,255,${Math.max(0, Math.min(1, twinkle)).toFixed(3)})`;
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    if (!reducedMotion) requestAnimationFrame(draw);
+  };
+
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(draw);
+}

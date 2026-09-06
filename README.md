@@ -40,13 +40,32 @@ precisión:
    exacta, separando espacios con `+`.
 
 ### 3. Fotos
-Cuando tengas las fotos de Luzmery Naiara:
-- Crea una carpeta `img/` y coloca ahí las imágenes.
-- En la sección `#galeria`, reemplaza cada `<div class="galeria-item">🦋</div>`
-  por `<img src="img/foto1.jpg" alt="...">` (ajusta el CSS `.galeria-item` si
-  usas `<img>` en vez de emoji).
-- Puedes también usar una foto como fondo del `.hero` agregando
-  `background-image: url('img/portada.jpg');` en `style.css`.
+El sitio ya incluye una carpeta `img/` con imágenes de ambientación (azul y
+plateado, con mariposas, rosas y una tiara) usadas en el hero, el footer, la
+sección "Un poco de mí" y como marcador temporal en la Galería:
+
+- `img/hero-cielo-estrellado.png` — textura de fondo del hero y del footer.
+- `img/tiara.png` — tiara sobre el nombre en el hero.
+- `img/quince.png` — el número "15" en cristales, reemplaza la palabra "Quince".
+- `img/corazon-borde.png` — divisor ornamental con corazón, bajo "Años" y bajo el nombre.
+- `img/mariposa-azul.png` — mariposa grande (arriba a la izquierda del hero), y
+  también junto al texto de presentación y en la galería.
+- `img/mariposa-azul-2.png` — mariposa junto al texto de presentación (variante).
+- `img/mariposa-plateada.png` — mariposa plateada grande (arriba a la derecha)
+  y las dos mariposas pequeñas semitransparentes del hero.
+- `img/rosa-azul.png` y `img/rosa-azul-2.png` — ramos de rosas de las esquinas
+  inferiores del hero (izquierda y derecha respectivamente).
+- `img/hojas.png` — hojas plateadas de relleno detrás de las rosas.
+
+Todas son PNG con fondo transparente. Cuando tengas las
+fotos reales de Luzmery Naiara:
+1. Colócalas dentro de `img/` (por ejemplo `img/foto1.jpg`).
+2. En la sección `#galeria` de `index.html`, reemplaza el `src` de cada
+   `<img>` dentro de `.galeria-item` por tus fotos, y ajusta el texto del
+   `<span>` (o quítalo).
+3. Si quieres, cambia también el fondo del `.hero` o la imagen de
+   `#historia` (`.presentacion-media img`) por una foto real de la
+   quinceañera.
 
 ### 4. Música de fondo
 El sitio incluye un botón flotante 🎵 (esquina inferior derecha) que reproduce
