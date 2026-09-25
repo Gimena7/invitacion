@@ -119,6 +119,30 @@ if (musicToggle && bgMusic) {
   document.addEventListener('touchstart', tryAutoplayOnce, { passive: true });
 }
 
+// Portada con sobre: al tocarlo se abre, suena la música y aparece la invitación
+const sobreIntro = document.getElementById('sobre-intro');
+const sobreBtn = document.getElementById('sobre-btn');
+
+if (sobreIntro && sobreBtn) {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  sobreBtn.addEventListener('click', () => {
+    if (sobreIntro.classList.contains('is-opening')) return;
+    sobreIntro.classList.add('is-opening');
+
+    // Se inicia dentro del toque para que iOS y Android permitan el sonido
+    if (bgMusic && bgMusic.paused) bgMusic.play().catch(() => {});
+
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      sobreIntro.classList.add('is-open');
+      document.body.classList.remove('con-sobre');
+    }, reducedMotion ? 0 : 1600);
+
+    setTimeout(() => sobreIntro.remove(), reducedMotion ? 900 : 2600);
+  });
+}
+
 // Animación de aparición al hacer scroll (escalonada entre elementos hermanos)
 const revealElements = document.querySelectorAll('.reveal');
 

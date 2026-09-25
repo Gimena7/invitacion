@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="con-sobre">
 
   <!-- Sprite de íconos -->
   <svg class="icon-sprite" aria-hidden="true">
@@ -82,6 +82,53 @@
       </symbol>
     </defs>
   </svg>
+
+  <!-- Portada con sobre: se abre al tocar el sello y da paso a la invitación -->
+  <div class="sobre-intro" id="sobre-intro">
+    <img class="intro-deco intro-hojas-l" src="img/hojas.png" alt="" aria-hidden="true">
+    <img class="intro-deco intro-hojas-r" src="img/hojas.png" alt="" aria-hidden="true">
+    <img class="intro-deco intro-rosa-l" src="img/rosa-azul.png" alt="" aria-hidden="true">
+    <img class="intro-deco intro-rosa-r" src="img/rosa-azul-2.png" alt="" aria-hidden="true">
+    <img class="intro-deco intro-bfly" src="img/mariposa-plateada.png" alt="" aria-hidden="true">
+
+    <div class="intro-contenido">
+      <div class="intro-titulo">
+        <img class="intro-tiara" src="img/tiara.png" alt="" aria-hidden="true">
+        <p class="intro-nombre">Luzmery Naiara</p>
+        <p class="intro-sub">Mis 15</p>
+      </div>
+
+      <button class="sobre" id="sobre-btn" type="button" aria-label="Abrir la invitación">
+        <span class="sobre-fondo" aria-hidden="true"></span>
+        <span class="sobre-carta" aria-hidden="true">
+          <span class="carta-pre">Estás invitado</span>
+          <span class="carta-nombre">Luzmery Naiara</span>
+        </span>
+        <span class="sobre-bolsillo" aria-hidden="true"></span>
+        <span class="sobre-solapa" aria-hidden="true"><span></span></span>
+        <span class="sobre-sello" aria-hidden="true">
+          <svg class="sello-texto" viewBox="0 0 200 200">
+            <defs>
+              <path id="sello-circulo" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
+            </defs>
+            <text><textPath href="#sello-circulo" textLength="488" lengthAdjust="spacing">Toca aquí para abrir tu invitación · Toca aquí para abrir tu invitación ·</textPath></text>
+          </svg>
+          <span class="sello-cera">
+            <svg class="icon" viewBox="0 0 100 100"><use href="#icon-butterfly"></use></svg>
+          </span>
+        </span>
+      </button>
+
+      <img class="intro-mariposa" src="img/mariposa-azul.png" alt="" aria-hidden="true">
+
+      <div class="intro-fecha" aria-label="Sábado 17 de octubre">
+        <span class="intro-fecha-lado">Sábado</span>
+        <span class="intro-fecha-dia">17</span>
+        <span class="intro-fecha-lado">Oct</span>
+      </div>
+    </div>
+  </div>
+  <noscript><style>.sobre-intro { display: none; } body.con-sobre { overflow: auto; height: auto; }</style></noscript>
 
   <!-- Marco decorativo de página -->
   <div class="page-frame" aria-hidden="true"><span></span></div>

@@ -6,7 +6,8 @@ o publicarse en cualquier hosting estático gratuito.
 
 ## Estructura
 
-- `index.html` — contenido y secciones (portada, fecha y cuenta regresiva,
+- `index.html` — portada con sobre (`#sobre-intro`: al tocar el sello se abre,
+  arranca la música y aparece la invitación), y luego las secciones (hero, fecha y cuenta regresiva,
   detalles y vestimenta, presentación, ubicación, confirmación). No tiene menú
   de navegación: es una página de scroll continuo.
 - `style.css` — estilos mobile-first, paleta azul/plateado y decoraciones
