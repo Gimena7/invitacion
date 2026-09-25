@@ -1022,27 +1022,14 @@ body.con-sobre { overflow: hidden; }
 }
 .sello-cera {
   position: absolute;
-  inset: 22%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #9dbbe0 0%, #5a86bb 38%, #2f5c95 72%, #1f4577 100%);
-  box-shadow:
-    inset 0 -4px 8px rgba(0, 0, 0, 0.28),
-    inset 0 3px 6px rgba(255, 255, 255, 0.4),
-    0 0 0 3px rgba(90, 134, 187, 0.35),
-    0 8px 14px -4px rgba(14, 28, 47, 0.55);
+  top: 17%;
+  left: 17%;
+  width: 66%;
+  height: 66%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 10px rgba(14, 28, 47, 0.45));
   animation: sello-latido 2.6s ease-in-out infinite;
 }
-.sello-cera::after {
-  content: "";
-  position: absolute;
-  inset: 12%;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-}
-.sello-cera .icon { width: 58%; height: 58%; color: rgba(255, 255, 255, 0.9); }
 
 /* Mariposa y fecha */
 .intro-mariposa { width: 62px; animation: intro-flotar 5s ease-in-out infinite; filter: drop-shadow(0 6px 10px rgba(14, 28, 47, 0.25)); }
