@@ -172,13 +172,16 @@ if (sobreIntro && sobreBtn) {
     // Se inicia dentro del toque para que iOS y Android permitan el sonido
     if (bgMusic && bgMusic.paused) bgMusic.play().catch(() => {});
 
+    // La tarjeta termina de subir a los ~1,7 s; se deja ~2,6 s para leer el mensaje
+    const tiempoLectura = reducedMotion ? 2500 : 4300;
+
     setTimeout(() => {
       window.scrollTo(0, 0);
       sobreIntro.classList.add('is-open');
       document.body.classList.remove('con-sobre');
-    }, reducedMotion ? 0 : 1600);
+    }, tiempoLectura);
 
-    setTimeout(() => sobreIntro.remove(), reducedMotion ? 900 : 2600);
+    setTimeout(() => sobreIntro.remove(), tiempoLectura + 1000);
   });
 }
 
