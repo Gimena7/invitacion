@@ -6,40 +6,41 @@ o publicarse en cualquier hosting estático gratuito.
 
 ## Estructura
 
-- `index.html` — contenido y secciones (portada, cuenta regresiva, detalles,
-  presentación, ubicación, confirmación). No tiene menú de navegación: es una
-  página de scroll continuo.
-- `style.css` — estilos, paleta azul/plateado y decoraciones (tiara, mariposas,
-  rosas, corazones).
-- `script.js` — cuenta regresiva, reproductor de música y animaciones al hacer scroll.
+- `index.html` — contenido y secciones (portada, fecha y cuenta regresiva,
+  detalles y vestimenta, presentación, ubicación, confirmación). No tiene menú
+  de navegación: es una página de scroll continuo.
+- `style.css` — estilos mobile-first, paleta azul/plateado y decoraciones
+  (tiara, mariposas, rosas, corazones).
+- `script.js` — cuenta regresiva, botón "Agregar al calendario" (.ics),
+  reproductor de música y animaciones al hacer scroll.
 
 ## Personalización pendiente
 
 ### 1. Formulario de confirmación (RSVP)
-En `index.html`, sección `#confirmar`, hay un iframe de ejemplo:
+En `index.html`, sección `#confirmar`, el botón "Confirmar asistencia" enlaza a
+un formulario de ejemplo:
 
 ```html
-<iframe id="rsvp-form" src="https://docs.google.com/forms/d/e/REEMPLAZAR_CON_TU_ID_DE_FORMULARIO/viewform?embedded=true">
+<a class="btn btn-primary" id="rsvp-link" href="https://docs.google.com/forms/d/e/REEMPLAZAR_CON_TU_ID_DE_FORMULARIO/viewform" ...>
 ```
 
 Para reemplazarlo por tu formulario real:
 1. Crea el formulario en [Google Forms](https://forms.google.com) con las preguntas
    que necesites (nombre, N° de acompañantes, confirmación, alergias, etc.).
-2. Haz clic en **Enviar** (arriba a la derecha) → pestaña **Insertar HTML** (ícono `<>`).
-3. Copia la URL que aparece dentro de `src="..."`.
-4. Pégala en el `src` del iframe `#rsvp-form`, reemplazando la URL de ejemplo.
+2. Haz clic en **Enviar** → pestaña de enlace (ícono 🔗) y copia la URL.
+3. Pégala en el `href` del botón `#rsvp-link`.
 
-Si prefieres no embeber el formulario, puedes reemplazar el iframe por un botón
-que enlace directamente al formulario (`target="_blank"`).
+Se usa un botón en vez de un formulario embebido porque en celulares el
+formulario se abre a pantalla completa y es mucho más cómodo de llenar.
 
 ### 2. Ubicación / Mapa
-El mapa usa una búsqueda genérica de "Centro de Retirados Militares". Para mayor
-precisión:
-1. Busca el lugar exacto en [Google Maps](https://maps.google.com).
-2. Copia el enlace para compartir o la dirección completa.
-3. Reemplaza `Centro+de+Retirados+Militares` en las dos URLs de la sección
-   `#ubicacion` (la del `<iframe>` y la del botón "Cómo llegar") por la dirección
-   exacta, separando espacios con `+`.
+La sección `#ubicacion` ya apunta al Club de Retirados Militares de Toledo:
+el mapa embebido, el botón "Google Maps" (enlace `maps.app.goo.gl`) y el botón
+"Waze" (usa las coordenadas `-34.7448788,-56.0893142`). Si cambia el lugar,
+actualiza los tres.
+
+Si cambias el lugar o el horario, actualiza también el objeto `EVENT` en
+`script.js` y el enlace de Google Calendar de la sección `#countdown`.
 
 ### 3. Fotos
 El sitio ya incluye una carpeta `img/` con imágenes de ambientación (azul y

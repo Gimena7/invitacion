@@ -1,6 +1,16 @@
 // Fecha del evento: 17 de octubre de 2026, 21:00 h (hora local del visitante)
 const EVENT_DATE = new Date('2026-10-17T21:00:00');
 
+const EVENT = {
+  title: 'XV Años de Luzmery Naiara',
+  location: 'Centro de Retirados Militares',
+  description: '¡Te espero para celebrar mis XV años!',
+  start: '20261017T210000',
+  end: '20261018T020000',
+};
+
+let countdownTimer;
+
 function updateCountdown() {
   const now = new Date();
   const diff = EVENT_DATE - now;
@@ -11,10 +21,9 @@ function updateCountdown() {
   const secondsEl = document.getElementById('seconds');
 
   if (diff <= 0) {
-    daysEl.textContent = '00';
-    hoursEl.textContent = '00';
-    minutesEl.textContent = '00';
-    secondsEl.textContent = '00';
+    document.getElementById('countdown-grid').hidden = true;
+    document.getElementById('countdown-fin').hidden = false;
+    clearInterval(countdownTimer);
     return;
   }
 
@@ -30,7 +39,41 @@ function updateCountdown() {
 }
 
 updateCountdown();
-setInterval(updateCountdown, 1000);
+countdownTimer = setInterval(updateCountdown, 1000);
+
+// Agregar al calendario (iPhone / Outlook) con un archivo .ics
+const icsButton = document.getElementById('ics-download');
+
+if (icsButton) {
+  icsButton.addEventListener('click', () => {
+    const stamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    const ics = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//XV Luzmery Naiara//ES',
+      'CALSCALE:GREGORIAN',
+      'BEGIN:VEVENT',
+      'UID:xv-luzmery-naiara-20261017@invitacion',
+      `DTSTAMP:${stamp}`,
+      `DTSTART:${EVENT.start}`,
+      `DTEND:${EVENT.end}`,
+      `SUMMARY:${EVENT.title}`,
+      `LOCATION:${EVENT.location}`,
+      `DESCRIPTION:${EVENT.description}`,
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
+
+    const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'xv-luzmery-naiara.ics';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+}
 
 // Música de fondo
 const musicToggle = document.getElementById('music-toggle');
@@ -63,31 +106,44 @@ if (musicToggle && bgMusic) {
 
   // Los navegadores bloquean el autoplay con sonido: se reproduce
   // automáticamente en la primera interacción del visitante con la página.
-  const tryAutoplayOnce = () => {
+  const tryAutoplayOnce = (event) => {
+    // El propio botón ya maneja su clic; sin esto la música se pausaba y reanudaba.
+    if (musicToggle.contains(event.target)) return;
     if (!userPaused && bgMusic.paused) {
       bgMusic.play().catch(() => {});
     }
     document.removeEventListener('click', tryAutoplayOnce);
     document.removeEventListener('touchstart', tryAutoplayOnce);
   };
-  document.addEventListener('click', tryAutoplayOnce, { once: true });
-  document.addEventListener('touchstart', tryAutoplayOnce, { once: true });
+  document.addEventListener('click', tryAutoplayOnce);
+  document.addEventListener('touchstart', tryAutoplayOnce, { passive: true });
 }
 
-// Animación de aparición al hacer scroll
+// Animación de aparición al hacer scroll (escalonada entre elementos hermanos)
 const revealElements = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
-revealElements.forEach((el) => observer.observe(el));
+
+revealElements.forEach((el) => {
+  const siblings = Array.from(el.parentElement.children).filter((child) => child.classList.contains('reveal'));
+  const index = siblings.indexOf(el);
+  if (index > 0) el.style.setProperty('--d', `${Math.min(index, 5) * 0.08}s`);
+});
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+  );
+  revealElements.forEach((el) => observer.observe(el));
+} else {
+  revealElements.forEach((el) => el.classList.add('is-visible'));
+}
 
 // Destellos plateados animados en el hero
 const sparkleCanvas = document.querySelector('.hero-sparkle');
