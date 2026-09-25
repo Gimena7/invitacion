@@ -1,11 +1,11 @@
-// Fecha del evento: 17 de octubre de 2026, 21:00 h (hora local del visitante)
-const EVENT_DATE = new Date('2026-10-17T21:00:00');
+// Fecha del evento: 17 de octubre de 2026, 20:30 h (hora local del visitante)
+const EVENT_DATE = new Date('2026-10-17T20:30:00');
 
 const EVENT = {
   title: 'XV Años de Luzmery Naiara',
-  location: 'Centro de Retirados Militares',
+  location: 'Centro de Retirados Militares (Toledo)',
   description: '¡Te espero para celebrar mis XV años!',
-  start: '20261017T210000',
+  start: '20261017T203000',
   end: '20261018T020000',
 };
 
@@ -72,6 +72,45 @@ if (icsButton) {
     link.click();
     link.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+}
+
+// Copiar el número de cuenta de regalos
+const copiarCuenta = document.getElementById('copiar-cuenta');
+
+if (copiarCuenta) {
+  const etiqueta = copiarCuenta.querySelector('span');
+
+  // Alternativa para navegadores sin API de portapapeles (o cuando esta falla)
+  const copiarConCampo = (texto) => {
+    const campo = document.createElement('textarea');
+    campo.value = texto;
+    campo.setAttribute('readonly', '');
+    campo.style.position = 'fixed';
+    campo.style.opacity = '0';
+    document.body.appendChild(campo);
+    campo.select();
+    const ok = document.execCommand('copy');
+    campo.remove();
+    return ok ? Promise.resolve() : Promise.reject(new Error('No se pudo copiar'));
+  };
+
+  const copiarTexto = (texto) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(texto).catch(() => copiarConCampo(texto));
+    }
+    return copiarConCampo(texto);
+  };
+
+  copiarCuenta.addEventListener('click', () => {
+    copiarTexto(copiarCuenta.dataset.copy).then(() => {
+      etiqueta.textContent = '¡Copiado!';
+      copiarCuenta.classList.add('is-copiado');
+      setTimeout(() => {
+        etiqueta.textContent = 'Copiar número';
+        copiarCuenta.classList.remove('is-copiado');
+      }, 2000);
+    }).catch(() => {});
   });
 }
 

@@ -62,10 +62,13 @@ toda la página y la sección "Un poco de mí":
   inferiores del hero (izquierda y derecha respectivamente).
 - `img/hojas.png` — hojas plateadas de relleno detrás de las rosas.
 
-Todas son PNG con fondo transparente. Cuando tengas las
-fotos reales de Luzmery Naiara, puedes reemplazar la imagen de `#historia`
-(`.presentacion-media img`) por una foto real de la quinceañera, o agregar
-una nueva sección de galería con tus propias fotos.
+Todas son PNG con fondo transparente.
+
+**Foto de Luzmery:** la sección `#historia` muestra por ahora una mariposa
+provisoria dentro del marco en arco. Para poner la foto real:
+1. Copia la foto en `img/` (por ejemplo `img/foto-luzmery.jpg`, vertical).
+2. En `index.html`, dentro de `.foto-marco`, cambia el `src` de la imagen y
+   quita la clase `foto-provisoria` (esa clase solo centra la mariposa).
 
 ### 4. Música de fondo
 El sitio incluye un botón flotante 🎵 (esquina inferior derecha) que reproduce
@@ -110,4 +113,4 @@ para publicarla en segundos, sin necesidad de crear cuenta de GitHub.
   carpeta (o el repositorio de GitHub) para poder reutilizarla o reubicarla
   cuando el hosting gratuito expire.
 - La cuenta regresiva usa la hora local del dispositivo de cada invitado,
-  tomando como referencia el 17 de octubre de 2026, 21:00 h.
+  tomando como referencia el 17 de octubre de 2026, 20:30 h.

@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#d8dbe4">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mis XV Años · Luzmery Naiara">
-  <meta property="og:description" content="Sábado 17 de octubre de 2026 · 21:00 h · Centro de Retirados Militares">
+  <meta property="og:description" content="Sábado 17 de octubre de 2026 · 20:30 h · Centro de Retirados Militares (Toledo)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -63,6 +63,11 @@
         <path d="M5 12H19M13.5 6.5L19 12L13.5 17.5" fill="none" stroke="currentColor" stroke-width="1.3"
           stroke-linecap="round" stroke-linejoin="round" />
       </symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24">
+        <rect x="8.5" y="8.5" width="11" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3" />
+        <path d="M15.5 8.5V5.5C15.5 4.7 14.8 4 14 4H6C5.2 4 4.5 4.7 4.5 5.5V15C4.5 15.8 5.2 16.5 6 16.5H8.5" fill="none"
+          stroke="currentColor" stroke-width="1.3" />
+      </symbol>
       <symbol id="icon-chevron" viewBox="0 0 24 24">
         <path d="M5 9L12 16L19 9" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
           stroke-linejoin="round" />
@@ -101,17 +106,19 @@
       <button class="sobre" id="sobre-btn" type="button" aria-label="Abrir la invitación">
         <span class="sobre-fondo" aria-hidden="true"></span>
         <span class="sobre-carta" aria-hidden="true">
-          <span class="carta-pre">Estás invitado</span>
-          <span class="carta-nombre">Luzmery Naiara</span>
+          <span class="carta-deco"></span>
+          <span class="carta-texto">Quiero que seas parte de este momento tan importante para mí</span>
+          <span class="carta-deco"></span>
         </span>
         <span class="sobre-bolsillo" aria-hidden="true"></span>
         <span class="sobre-solapa" aria-hidden="true"><span></span></span>
         <span class="sobre-sello" aria-hidden="true">
           <svg class="sello-texto" viewBox="0 0 200 200">
             <defs>
-              <path id="sello-circulo" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
+              <!-- Arco inferior: de arriba a la izquierda, pasando por abajo, hasta arriba a la derecha -->
+              <path id="sello-arco" d="M24.8,72.6 A80,80 0 1,0 175.2,72.6" />
             </defs>
-            <text><textPath href="#sello-circulo" textLength="488" lengthAdjust="spacing">Toca aquí para abrir tu invitación · Toca aquí para abrir tu invitación ·</textPath></text>
+            <text><textPath href="#sello-arco" startOffset="50%" text-anchor="middle">Toca aquí para ver tu invitación</textPath></text>
           </svg>
           <img class="sello-cera" src="img/boton-sobre.png" alt="">
         </span>
@@ -152,15 +159,22 @@
       <img class="hero-divider" src="img/corazon-borde.png" alt="" aria-hidden="true">
       <h1 class="name">Luzmery<br>Naiara</h1>
       <img class="hero-divider hero-divider-sm" src="img/corazon-borde.png" alt="" aria-hidden="true">
+      <div class="hero-countdown" id="countdown-grid" role="timer" aria-label="Cuenta regresiva">
+        <div class="hc-box"><span id="days">00</span><small>Días</small></div>
+        <div class="hc-box"><span id="hours">00</span><small>Horas</small></div>
+        <div class="hc-box"><span id="minutes">00</span><small>Min</small></div>
+        <div class="hc-box"><span id="seconds">00</span><small>Seg</small></div>
+      </div>
+      <p class="hero-countdown-fin" id="countdown-fin" hidden>¡Hoy es el gran día!</p>
       <div class="hero-date-row">
         <span class="rule"></span><span class="txt">17 de Octubre de 2026</span><span class="rule"></span>
       </div>
       <div class="hero-date-row">
-        <span class="rule"></span><span class="txt">21:00 h</span><span class="rule"></span>
+        <span class="rule"></span><span class="txt">20:30 h</span><span class="rule"></span>
       </div>
       <a href="#confirmar" class="btn-hero">Confirmar Asistencia</a>
     </div>
-    <a href="#countdown" class="scroll-down" aria-label="Bajar">
+    <a href="#cuando" class="scroll-down" aria-label="Bajar">
       <svg class="icon"><use href="#icon-chevron"></use></svg>
       <svg class="icon" style="margin-top:-10px;"><use href="#icon-chevron"></use></svg>
       <span>Desliza para descubrir</span>
@@ -169,29 +183,29 @@
 
   <main class="contenido">
 
-    <!-- Fecha y cuenta regresiva -->
-    <section id="countdown" class="section sec-blanco">
+    <!-- ¿Cuándo? -->
+    <section id="cuando" class="section sec-blanco">
       <div class="container">
         <header class="section-head reveal">
+          <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="10" y="14" width="44" height="40" rx="3" pathLength="1" />
+            <line x1="10" y1="24" x2="54" y2="24" pathLength="1" />
+            <line x1="22" y1="8" x2="22" y2="18" pathLength="1" />
+            <line x1="42" y1="8" x2="42" y2="18" pathLength="1" />
+            <path d="M32 46C24.5 40.5 20.5 37 20.5 33C20.5 30 22.8 28 25.4 28C28.2 28 30.2 29.8 32 32.3C33.8 29.8 35.8 28 38.6 28C41.2 28 43.5 30 43.5 33C43.5 37 39.5 40.5 32 46Z" pathLength="1" />
+          </svg>
+          <h2 class="section-title">¿Cuándo?</h2>
           <div class="section-divider" aria-hidden="true"><span></span></div>
-          <p class="section-eyebrow">Reserva la Fecha</p>
-          <h2 class="section-title">Ya Casi Llega el Gran Día</h2>
         </header>
 
-        <div class="card countdown-card reveal">
-          <p class="fecha-linea">Sábado 17 de octubre de 2026 &nbsp;·&nbsp; 21:00 h</p>
-          <div class="countdown" id="countdown-grid">
-            <div class="count-box"><span id="days">00</span><small>Días</small></div>
-            <div class="count-box"><span id="hours">00</span><small>Horas</small></div>
-            <div class="count-box"><span id="minutes">00</span><small>Minutos</small></div>
-            <div class="count-box"><span id="seconds">00</span><small>Segundos</small></div>
-          </div>
-          <p class="countdown-fin" id="countdown-fin" hidden>¡Hoy es el gran día!</p>
+        <div class="cuando reveal">
+          <p class="cuando-fecha">17 de octubre 2026</p>
+          <p class="cuando-hora"><span>|</span> 20:30 hs <span>|</span></p>
         </div>
 
         <div class="btn-group reveal">
           <a class="btn btn-secondary"
-            href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=XV%20A%C3%B1os%20de%20Luzmery%20Naiara&amp;dates=20261017T210000/20261018T020000&amp;location=Centro%20de%20Retirados%20Militares&amp;details=%C2%A1Te%20espero%20para%20celebrar%20mis%20XV%20a%C3%B1os!"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=XV%20A%C3%B1os%20de%20Luzmery%20Naiara&amp;dates=20261017T203000/20261018T020000&amp;location=Centro%20de%20Retirados%20Militares%20(Toledo)&amp;details=%C2%A1Te%20espero%20para%20celebrar%20mis%20XV%20a%C3%B1os!"
             target="_blank" rel="noopener">
             <svg class="icon"><use href="#icon-calendar"></use></svg> Google Calendar
           </a>
@@ -202,74 +216,18 @@
       </div>
     </section>
 
-    <!-- Detalles del evento -->
-    <section id="detalles" class="section sec-gris">
+    <!-- ¿Dónde? -->
+    <section id="ubicacion" class="section sec-gris">
       <div class="container container-wide">
         <header class="section-head reveal">
+          <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 54C32 54 48 39 48 26C48 17.2 40.8 10 32 10C23.2 10 16 17.2 16 26C16 39 32 54 32 54Z" pathLength="1" />
+            <circle cx="32" cy="26" r="6.5" pathLength="1" />
+            <path d="M18 50C12 51.5 10 53 10 54.5C10 57.5 20 59.5 32 59.5C44 59.5 54 57.5 54 54.5C54 53 52 51.5 46 50" pathLength="1" />
+          </svg>
+          <h2 class="section-title">¿Dónde?</h2>
           <div class="section-divider" aria-hidden="true"><span></span></div>
-          <p class="section-eyebrow">Lo Esencial</p>
-          <h2 class="section-title">Detalles del Evento</h2>
-        </header>
-
-        <dl class="card detalles-lista reveal">
-          <div class="detalle">
-            <span class="detalle-icon"><svg class="icon"><use href="#icon-calendar"></use></svg></span>
-            <dt class="detalle-label">Fecha</dt>
-            <dd class="detalle-valor">Sábado 17 de octubre, 2026</dd>
-          </div>
-          <div class="detalle">
-            <span class="detalle-icon"><svg class="icon"><use href="#icon-clock"></use></svg></span>
-            <dt class="detalle-label">Hora</dt>
-            <dd class="detalle-valor">21:00 horas</dd>
-          </div>
-          <div class="detalle">
-            <span class="detalle-icon"><svg class="icon"><use href="#icon-pin"></use></svg></span>
-            <dt class="detalle-label">Lugar</dt>
-            <dd class="detalle-valor">Centro de Retirados Militares</dd>
-          </div>
-          <div class="detalle">
-            <span class="detalle-icon"><svg class="icon"><use href="#icon-dress"></use></svg></span>
-            <dt class="detalle-label">Vestimenta</dt>
-            <dd class="detalle-valor">Semiformal</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- Un poco de mí -->
-    <section id="historia" class="section sec-noche">
-      <div class="container container-wide">
-        <header class="section-head reveal">
-          <div class="section-divider" aria-hidden="true"><span></span></div>
-          <p class="section-eyebrow">Mis Palabras</p>
-          <h2 class="section-title">Un Poco de Mí</h2>
-        </header>
-
-        <div class="card presentacion-card reveal">
-          <div class="presentacion-media">
-            <img src="img/mariposa-azul-2.png" alt="Mariposa azul, símbolo de esta nueva etapa" loading="lazy">
-          </div>
-          <div class="presentacion-copy">
-            <p class="presentacion-texto">
-              Con la bendición de Dios y el amor de mis padres, hoy dejo de ser niña
-              para convertirme en una mujer. Quiero compartir este día tan especial
-              junto a las personas que más quiero, celebrando esta nueva etapa de mi
-              vida rodeada de brillo, color azul y plateado, y muchas mariposas en
-              el estómago.
-            </p>
-            <p class="firma">Luzmery Naiara</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ubicación -->
-    <section id="ubicacion" class="section sec-blanco">
-      <div class="container container-wide">
-        <header class="section-head reveal">
-          <div class="section-divider" aria-hidden="true"><span></span></div>
-          <p class="section-eyebrow">Nos Vemos En</p>
-          <h2 class="section-title">Ubicación</h2>
+          <p class="section-lugar">Centro de Retirados Militares <span>(Toledo)</span></p>
         </header>
 
         <div class="card map-card reveal">
@@ -280,23 +238,100 @@
               title="Mapa de ubicación del evento">
             </iframe>
           </div>
-          <div class="map-info">
-            <p class="detalle-label">Centro de Retirados Militares</p>
-            <h3>Cómo llegar</h3>
-            <p>Contamos con estacionamiento disponible para los invitados. Te recomendamos llegar unos minutos
-              antes de las 21:00 h.</p>
-            <div class="map-actions">
-              <a class="btn btn-primary" href="https://maps.app.goo.gl/wYNabP9Rdi92VwEUA" target="_blank"
-                rel="noopener">
-                <svg class="icon"><use href="#icon-pin"></use></svg> Google Maps
-              </a>
-              <a class="btn btn-secondary" href="https://waze.com/ul?ll=-34.7448788,-56.0893142&amp;navigate=yes"
-                target="_blank" rel="noopener">
-                <svg class="icon"><use href="#icon-arrow"></use></svg> Waze
-              </a>
-            </div>
-          </div>
         </div>
+
+        <div class="btn-group reveal">
+          <a class="btn btn-primary" href="https://maps.app.goo.gl/wYNabP9Rdi92VwEUA" target="_blank" rel="noopener">
+            <svg class="icon"><use href="#icon-pin"></use></svg> Google Maps
+          </a>
+          <a class="btn btn-secondary" href="https://waze.com/ul?ll=-34.7448788,-56.0893142&amp;navigate=yes"
+            target="_blank" rel="noopener">
+            <svg class="icon"><use href="#icon-arrow"></use></svg> Waze
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Foto de Luzmery -->
+    <!-- Cuando tengas la foto, colócala en img/ y cambia el src de .foto-marco img (ver README.md). -->
+    <section id="historia" class="section sec-noche">
+      <div class="container">
+        <header class="section-head reveal">
+          <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="8" y="20" width="48" height="32" rx="4" pathLength="1" />
+            <path d="M22 20L26 13H38L42 20" pathLength="1" />
+            <circle cx="32" cy="36" r="9" pathLength="1" />
+            <circle cx="32" cy="36" r="4" pathLength="1" />
+            <circle cx="48" cy="27" r="1.6" pathLength="1" />
+          </svg>
+        </header>
+
+        <figure class="foto reveal">
+          <div class="foto-marco">
+            <img class="foto-provisoria" src="img/mariposa-azul-2.png" alt="Luzmery Naiara" loading="lazy">
+          </div>
+          <figcaption>
+            <p class="foto-texto">
+              Con la bendición de Dios y el amor de mis padres, hoy dejo de ser niña
+              para convertirme en una mujer. Quiero compartir este día tan especial
+              junto a las personas que más quiero, celebrando esta nueva etapa de mi
+              vida rodeada de brillo, color azul y plateado, y muchas mariposas en
+              el estómago.
+            </p>
+            <p class="firma">Luzmery Naiara</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Regalos -->
+    <section id="regalos" class="section sec-blanco">
+      <div class="container">
+        <header class="section-head reveal">
+          <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="12" y="28" width="40" height="26" rx="1.5" pathLength="1" />
+            <rect x="9" y="20" width="46" height="8" rx="1.5" pathLength="1" />
+            <line x1="32" y1="20" x2="32" y2="54" pathLength="1" />
+            <path d="M32 20C28.5 12 19 11 19.5 16.5C20 20 27 20 32 20Z" pathLength="1" />
+            <path d="M32 20C35.5 12 45 11 44.5 16.5C44 20 37 20 32 20Z" pathLength="1" />
+          </svg>
+          <h2 class="section-title">Regalos</h2>
+          <div class="section-divider" aria-hidden="true"><span></span></div>
+        </header>
+
+        <p class="regalos-texto reveal">
+          Nada es más importante que tu presencia, pero si deseas hacerme un presente
+          puedes depositarlo en la siguiente cuenta
+        </p>
+
+        <div class="card cuenta-card reveal">
+          <p class="detalle-label">Cuenta</p>
+          <p class="cuenta-numero" id="cuenta-numero">3701399866</p>
+          <p class="cuenta-titular">Mariana Motta <span>(madre)</span></p>
+          <button class="btn btn-secondary btn-sm" type="button" id="copiar-cuenta" data-copy="3701399866">
+            <svg class="icon" viewBox="0 0 24 24"><use href="#icon-copy"></use></svg>
+            <span>Copiar número</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vestimenta -->
+    <section id="vestimenta" class="section sec-gris">
+      <div class="container">
+        <header class="section-head reveal">
+          <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M25 7L27 18M39 7L37 18" pathLength="1" />
+            <path d="M27 18Q32 22.5 37 18C37.5 22 38 25 39.5 28H24.5C26 25 26.5 22 27 18Z" pathLength="1" />
+            <path d="M24.5 28C21.5 36 14.5 47 11 56Q32 61 53 56C49.5 47 42.5 36 39.5 28" pathLength="1" />
+            <path d="M32 28C30 31 27 32.5 25 32M32 28C34 31 37 32.5 39 32" pathLength="1" />
+            <path d="M22 45Q32 48 42 45" pathLength="1" />
+          </svg>
+          <h2 class="section-title">Vestimenta</h2>
+          <div class="section-divider" aria-hidden="true"><span></span></div>
+        </header>
+
+        <p class="vestimenta-tipo reveal">Semiformal</p>
       </div>
     </section>
 
@@ -305,9 +340,14 @@
     <section id="confirmar" class="section sec-textura">
       <div class="container">
         <header class="section-head reveal">
-          <div class="section-divider" aria-hidden="true"><span></span></div>
-          <p class="section-eyebrow">Tu Presencia Es Mi Mejor Regalo</p>
+          <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="8" y="16" width="48" height="34" rx="3" pathLength="1" />
+            <path d="M9 18L32 36L55 18" pathLength="1" />
+            <path d="M9 48L26 32M55 48L38 32" pathLength="1" />
+          </svg>
           <h2 class="section-title">Confirma tu Asistencia</h2>
+          <div class="section-divider" aria-hidden="true"><span></span></div>
+          <p class="section-sub">Antes del 15 de octubre 2026</p>
         </header>
 
         <div class="card rsvp-card reveal">
@@ -318,7 +358,6 @@
           <a class="btn btn-primary" id="rsvp-link"
             href="https://docs.google.com/forms/d/e/REEMPLAZAR_CON_TU_ID_DE_FORMULARIO/viewform" target="_blank"
             rel="noopener">Confirmar asistencia</a>
-          <p class="rsvp-nota">Solo toma un minuto</p>
         </div>
       </div>
     </section>
