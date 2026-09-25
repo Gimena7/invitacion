@@ -68,21 +68,11 @@ una nueva sección de galería con tus propias fotos.
 
 ### 4. Música de fondo
 El sitio incluye un botón flotante 🎵 (esquina inferior derecha) que reproduce
-música de fondo en loop, usando el archivo `audio/musica-fondo.mp3`.
+música de fondo en loop: "The Climb" de Miley Cyrus, en el archivo
+`audio/the_climb_miley_cyrus.mp3`.
 
-**Pista de prueba ya incluida**: "Shining Stars", del catálogo público
-[FreePD](https://freepd.com) (dominio público / CC0, sin necesidad de
-atribución), obtenida vía su copia archivada en Internet Archive
-(archive.org/details/freepd). Es solo para probar el reproductor — puedes
-dejarla o reemplazarla.
-
-Para usar tu propia canción:
-1. Reemplaza el archivo `audio/musica-fondo.mp3` por el tuyo (mismo nombre),
-   o cambia la ruta en el `<source>` dentro de `index.html` (sección final).
-2. Usa una canción con licencia libre de derechos para evitar problemas de
-   copyright al publicarla (por ejemplo, en [Pixabay Music](https://pixabay.com/music/),
-   [YouTube Audio Library](https://www.youtube.com/audiolibrary) o
-   [Free Music Archive](https://freemusicarchive.org)), o una pista propia.
+Para cambiar la canción, reemplaza ese archivo y actualiza la ruta del
+`<source>` dentro de `index.html` (sección final).
 
 Nota: los navegadores bloquean la reproducción automática con sonido, por lo
 que la música arranca en el primer clic o toque del visitante en cualquier
