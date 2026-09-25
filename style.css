@@ -16,10 +16,10 @@
   --texto-suave: #5c7292;
   --sombra-suave: rgba(14, 28, 47, 0.12);
 
-  --font-display: 'Playfair Display', serif;
+  --font-display: 'Montserrat', sans-serif;
   --font-serif-soft: 'Cormorant Garamond', serif;
-  --font-nombre: 'Great Vibes', cursive;
-  --font-texto: 'Poppins', sans-serif;
+  --font-nombre: 'Cormorant Garamond', serif;
+  --font-texto: 'Montserrat', sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -1146,3 +1146,124 @@ body.con-sobre { overflow: hidden; }
 }
 /* Imagen provisoria mientras no esté la foto real: se muestra completa */
 .foto-marco img.foto-provisoria { object-fit: contain; padding: 14%; }
+
+/* =========================================================
+   Tipografía: Cormorant Garamond para el nombre y los textos
+   destacados; Montserrat para títulos, fechas, ubicación,
+   botones y textos generales. Títulos en mayúsculas.
+   ========================================================= */
+
+/* Nombre de la quinceañera */
+.name {
+  font-weight: 500;
+  font-size: clamp(3.3rem, 15vw, 6rem);
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  padding-top: 0;
+  margin: 0.2rem 0 0.9rem;
+}
+.intro-nombre {
+  font-weight: 500;
+  font-size: clamp(2.7rem, 12.5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  padding-top: 0;
+}
+.intro-sub {
+  margin-top: 0.7rem;
+  font-family: var(--font-texto);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  padding-left: 0.38em;
+}
+.firma {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+}
+.footer-name { font-weight: 500; font-size: 2.3rem; letter-spacing: 0.02em; }
+.hero-countdown-fin { font-style: italic; font-weight: 500; }
+
+/* Textos destacados */
+.foto-texto {
+  font-family: var(--font-nombre);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.7;
+}
+.carta-texto {
+  font-family: var(--font-nombre);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Títulos de sección en mayúsculas con tracking suave */
+.section-title {
+  font-weight: 500;
+  font-size: clamp(1.1rem, 5vw, 1.45rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding-left: 0.22em;
+}
+
+/* Fechas, ubicación y valores: Montserrat en minúscula */
+.cuando-fecha,
+.vestimenta-tipo {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+.cuando-hora { font-size: 1.05rem; font-weight: 400; letter-spacing: 0.08em; text-transform: none; }
+.section-lugar {
+  margin-top: 1.4rem;
+  font-family: var(--font-texto);
+  font-size: 1.02rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+.section-lugar span { font-size: 0.9rem; }
+.cuenta-numero { font-size: 1.45rem; font-weight: 400; letter-spacing: 0.14em; }
+.hc-box span { font-weight: 400; font-size: 1.3rem; }
+.intro-fecha-lado { font-family: var(--font-texto); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.22em; }
+.intro-fecha-dia { font-family: var(--font-texto); font-weight: 300; font-size: 2.8rem; }
+
+/* Textos generales */
+.regalos-texto,
+.rsvp-texto { font-size: 0.9rem; font-weight: 300; line-height: 1.85; }
+.btn { font-weight: 500; letter-spacing: 0.16em; }
+
+/* Más aire entre elementos */
+.section { padding: 5rem 1.5rem; }
+.section-head { margin-bottom: 2.4rem; }
+.section-divider { margin-top: 1.1rem; }
+.foto figcaption { margin-top: 2.4rem; }
+
+@media (min-width: 640px) {
+  .hc-box span { font-size: 1.6rem; }
+  .carta-texto { font-size: 1.35rem; }
+}
+@media (min-width: 768px) {
+  .section { padding: 7rem 2rem; }
+  .section-head { margin-bottom: 3rem; }
+  .section-title { font-size: 1.6rem; }
+  .cuando-fecha, .vestimenta-tipo { font-size: 1.4rem; }
+  .foto-texto { font-size: 1.45rem; }
+  .firma { font-size: 2.3rem; }
+}
+@media (max-height: 740px) {
+  .hc-box span { font-size: 1.1rem; }
+  .intro-nombre { font-size: clamp(2.3rem, 11vw, 3.2rem); }
+}
+.cuando-hora { display: flex; align-items: center; justify-content: center; gap: 1rem; }
+.cuando-hora span { display: block; width: 1px; height: 1.1em; margin: 0; background: #9aabc3; }
+.carta-texto { text-wrap: balance; }
