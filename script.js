@@ -3,7 +3,7 @@ const EVENT_DATE = new Date('2026-10-17T20:30:00');
 
 const EVENT = {
   title: 'XV Años de Luzmery Naiara',
-  location: 'Centro de Retirados Militares (Toledo)',
+  location: 'Club de Retirados Militares (Toledo)',
   description: '¡Te espero para celebrar mis XV años!',
   start: '20261017T203000',
   end: '20261018T020000',
