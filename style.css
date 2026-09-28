@@ -1290,3 +1290,7 @@ body.con-sobre { overflow: hidden; }
 .footer-name { font-size: 2.5rem; line-height: 1.35; }
 @media (min-width: 768px) { .firma { font-size: 2.7rem; } }
 @media (max-height: 740px) { .intro-nombre { font-size: clamp(2.2rem, 10.5vw, 3.1rem); } }
+
+/* Botones de navegación (Google Maps / Waze): blancos, mismo estilo que el resto */
+.btn-app { background: #ffffff; color: var(--ui-texto); }
+.btn-app:hover { background: var(--ui-texto); color: #ffffff; }
