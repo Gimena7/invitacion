@@ -19,6 +19,7 @@
   --font-display: 'Montserrat', sans-serif;
   --font-serif-soft: 'Cormorant Garamond', serif;
   --font-nombre: 'Cormorant Garamond', serif;
+  --font-script: 'Great Vibes', cursive;
   --font-texto: 'Montserrat', sans-serif;
 }
 
@@ -1267,3 +1268,25 @@ body.con-sobre { overflow: hidden; }
 .cuando-hora { display: flex; align-items: center; justify-content: center; gap: 1rem; }
 .cuando-hora span { display: block; width: 1px; height: 1.1em; margin: 0; background: #9aabc3; }
 .carta-texto { text-wrap: balance; }
+/* Foto real: formato más vertical y encuadre alto para que entren la cara y los globos del 15 */
+.foto-marco { aspect-ratio: 3 / 4; }
+.foto-marco img { object-position: 50% 22%; }
+/* Foto completa, sin recorte ni arco: se muestra en su proporción original */
+.foto-marco { aspect-ratio: auto; width: min(82vw, 380px); border-radius: 6px; padding: 6px; }
+.foto-marco img { height: auto; object-fit: initial; border-radius: 3px; }
+/* Nombre de la billetera con su escritura original (la etiqueta va en mayúsculas) */
+.detalle-label .marca { text-transform: none; letter-spacing: 0.08em; font-weight: 600; }
+
+/* Nombre "Luzmery Naiara" en Great Vibes */
+.name, .intro-nombre, .firma, .footer-name {
+  font-family: var(--font-script);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.name { font-size: clamp(3.4rem, 15vw, 6rem); line-height: 1.25; padding: 0.1em 0.15em 0; margin: 0 0 0.6rem; }
+.intro-nombre { font-size: clamp(2.6rem, 12vw, 3.8rem); line-height: 1.3; padding: 0.1em 0.15em 0; }
+.firma { font-size: 2.3rem; line-height: 1.3; }
+.footer-name { font-size: 2.5rem; line-height: 1.35; }
+@media (min-width: 768px) { .firma { font-size: 2.7rem; } }
+@media (max-height: 740px) { .intro-nombre { font-size: clamp(2.2rem, 10.5vw, 3.1rem); } }

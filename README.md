@@ -64,11 +64,11 @@ toda la página y la sección "Un poco de mí":
 
 Todas son PNG con fondo transparente.
 
-**Foto de Luzmery:** la sección `#historia` muestra por ahora una mariposa
-provisoria dentro del marco en arco. Para poner la foto real:
-1. Copia la foto en `img/` (por ejemplo `img/foto-luzmery.jpg`, vertical).
-2. En `index.html`, dentro de `.foto-marco`, cambia el `src` de la imagen y
-   quita la clase `foto-provisoria` (esa clase solo centra la mariposa).
+**Foto de Luzmery:** la sección `#historia` muestra `img/luzmery.jpg`, una
+versión optimizada para web (900 px de ancho, ~250 KB) de `img/luzmery.png`.
+Si cambias la foto, genera de nuevo el JPG optimizado o apunta el `src` de
+`.foto-marco img` a la nueva imagen. El encuadre se ajusta con
+`object-position` en `.foto-marco img` (`style.css`).
 
 ### 4. Música de fondo
 El sitio incluye un botón flotante 🎵 (esquina inferior derecha) que reproduce
