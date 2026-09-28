@@ -129,7 +129,7 @@
       <div class="intro-fecha" aria-label="Sábado 17 de octubre">
         <span class="intro-fecha-lado">Sábado</span>
         <span class="intro-fecha-dia">17</span>
-        <span class="intro-fecha-lado">Oct</span>
+        <span class="intro-fecha-lado">Octubre</span>
       </div>
     </div>
   </div>
@@ -167,7 +167,7 @@
       </div>
       <p class="hero-countdown-fin" id="countdown-fin" hidden>¡Hoy es el gran día!</p>
       <div class="hero-date-row">
-        <span class="rule"></span><span class="txt">17 de Octubre de 2026</span><span class="rule"></span>
+        <span class="txt">17 de Octubre de 2026</span>
       </div>
       <div class="hero-date-row">
         <span class="rule"></span><span class="txt">20:30 h</span><span class="rule"></span>
@@ -175,9 +175,11 @@
       <a href="#confirmar" class="btn-hero">Confirmar Asistencia</a>
     </div>
     <a href="#cuando" class="scroll-down" aria-label="Bajar">
-      <svg class="icon"><use href="#icon-chevron"></use></svg>
-      <svg class="icon" style="margin-top:-10px;"><use href="#icon-chevron"></use></svg>
-      <span>Desliza para descubrir</span>
+      <span class="scroll-texto">Desliza para descubrir</span>
+      <span class="scroll-flechas" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 9L12 16L19 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 9L12 16L19 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </span>
     </a>
   </header>
 
@@ -325,12 +327,16 @@
     <section id="vestimenta" class="section sec-gris">
       <div class="container">
         <header class="section-head reveal">
-          <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M25 7L27 18M39 7L37 18" pathLength="1" />
-            <path d="M27 18Q32 22.5 37 18C37.5 22 38 25 39.5 28H24.5C26 25 26.5 22 27 18Z" pathLength="1" />
-            <path d="M24.5 28C21.5 36 14.5 47 11 56Q32 61 53 56C49.5 47 42.5 36 39.5 28" pathLength="1" />
-            <path d="M32 28C30 31 27 32.5 25 32M32 28C34 31 37 32.5 39 32" pathLength="1" />
-            <path d="M22 45Q32 48 42 45" pathLength="1" />
+          <!-- Camisa doblada (atrás) y vestido (adelante), superpuestos -->
+          <svg class="sec-icon sec-icon-doble" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M33.9 10L26.5 13.4C25 14.1 24 15.1 24 16.6V43C24 44.1 24.9 45 26 45H58C59.1 45 60 44.1 60 43V16.6C60 15.1 59 14.1 57.5 13.4L50.1 10" pathLength="1" />
+            <path d="M42 10.5L37.4 5.9L34 9.8L39.3 15.5ZM42 10.5L46.6 5.9L50 9.8L44.7 15.5ZM37.4 5.9L38.2 5H45.8L46.6 5.9" pathLength="1" />
+            <path d="M42 10.5V45" pathLength="1" />
+            <path d="M45.4 19.2H46.8M45.4 24.5H46.8M45.4 29.8H46.8M45.4 35.1H46.8M45.4 40.4H46.8" pathLength="1" />
+            <path class="relleno" d="M14.5 17.5L20 27L25.5 17.5C27.5 23 27.2 29 25.6 34H14.4C12.8 29 12.5 23 14.5 17.5Z" pathLength="1" />
+            <path class="relleno" d="M14.4 34H25.6L26.2 37.5H13.8Z" pathLength="1" />
+            <path class="relleno" d="M13.8 37.5C10.8 43.5 7 51 5 58Q20 62 35 58C33 51 29.2 43.5 26.2 37.5Z" pathLength="1" />
+            <path d="M10.2 46.5Q13.5 44.5 16.8 46.5T23.4 46.5T30 46.5M7.4 53Q11 51 14.6 53T21.8 53T29 53T33 52.6" pathLength="1" />
           </svg>
           <h2 class="section-title">Vestimenta</h2>
           <div class="section-divider" aria-hidden="true"><span></span></div>
