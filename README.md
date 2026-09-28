@@ -18,18 +18,15 @@ o publicarse en cualquier hosting estático gratuito.
 ## Personalización pendiente
 
 ### 1. Formulario de confirmación (RSVP)
-En `index.html`, sección `#confirmar`, el botón "Confirmar asistencia" enlaza a
-un formulario de ejemplo:
+En `index.html`, sección `#confirmar`, el botón "Confirmar asistencia"
+(`#rsvp-link`) enlaza al Google Form de la invitación. Para cambiarlo, en
+Google Forms haz clic en **Enviar** → pestaña de enlace (ícono 🔗), copia la
+URL y pégala en el `href` de ese botón.
 
-```html
-<a class="btn btn-primary" id="rsvp-link" href="https://docs.google.com/forms/d/e/REEMPLAZAR_CON_TU_ID_DE_FORMULARIO/viewform" ...>
-```
-
-Para reemplazarlo por tu formulario real:
-1. Crea el formulario en [Google Forms](https://forms.google.com) con las preguntas
-   que necesites (nombre, N° de acompañantes, confirmación, alergias, etc.).
-2. Haz clic en **Enviar** → pestaña de enlace (ícono 🔗) y copia la URL.
-3. Pégala en el `href` del botón `#rsvp-link`.
+Importante: el formulario debe aceptar respuestas sin iniciar sesión. En
+**Configuración → Respuestas**, desactiva "Restringir a usuarios de tu
+organización" y "Limitar a 1 respuesta" (esta última también obliga a iniciar
+sesión con Google).
 
 Se usa un botón en vez de un formulario embebido porque en celulares el
 formulario se abre a pantalla completa y es mucho más cómodo de llenar.
